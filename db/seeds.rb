@@ -17,10 +17,12 @@ User.create!(name: "Thai Ba Viet",
   name = Faker::Name.name
   email = "example-#{n+1}@gmail.com"
   password = "password"
-  User.create!(name: name,
+  user = User.create!(name: name,
                email: email,
                password: password,
                password_confirmation: password,
                activated: true,
                activated_at: Time.zone.now)
+  user.microposts.create!(content: "Everything will be okay!")
+  user.microposts.create!(content: "You're so beatiful! My girl! :*)")
 end
